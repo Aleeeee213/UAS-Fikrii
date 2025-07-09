@@ -1,0 +1,52 @@
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Kursus</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html"><svg></svg> Home</a></li>
+      <li><a href="daftar.html"><svg></svg> Daftar Kursus</a></li>
+      <li><a href="pilih.html"><svg></svg> Pilih Jadwal</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Formulir Pendaftaran Kursus</h2>
+    <form id="formDaftar">
+      <input type="text" placeholder="NIK" id="nik" required><br>
+      <input type="text" placeholder="Nama" id="nama" required><br>
+      <textarea id="alamat" placeholder="Alamat" required></textarea><br>
+      <select id="jk">
+        <option value="Laki-laki">Laki-laki</option>
+        <option value="Perempuan">Perempuan</option>
+      </select><br>
+      <button type="submit">Daftar</button>
+    </form>
+
+    <div id="outputDaftar"></div>
+    <div id="infoCuaca"></div>
+  </main>
+
+  <script>
+    document.getElementById("formDaftar").onsubmit = function(e) {
+      e.preventDefault();
+      const nik = document.getElementById("nik").value;
+      const nama = document.getElementById("nama").value;
+      const alamat = document.getElementById("alamat").value;
+      const jk = document.getElementById("jk").value;
+
+      document.getElementById("outputDaftar").innerHTML = `
+        <h3>Data Pendaftar:</h3>
+        <p>NIK: ${nik}<br>Nama: ${nama}<br>Alamat: ${alamat}<br>Jenis Kelamin: ${jk}</p>
+      `;
+    };
+
+    const now = new Date();
+    document.getElementById("infoCuaca").innerText = `Jam Saat Ini: ${now.toLocaleTimeString()}`;
+  </script>
+</body>
+</html>

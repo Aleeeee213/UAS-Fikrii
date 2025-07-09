@@ -1,0 +1,59 @@
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pilih Jadwal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html"><svg></svg> Home</a></li>
+      <li><a href="daftar.html"><svg></svg> Daftar Kursus</a></li>
+      <li><a href="pilih.html"><svg></svg> Pilih Jadwal</a></li>
+    </ul>
+  </nav>
+
+  <main class="form-container">
+    <h2>Pilih Jadwal Kursus</h2>
+    <form id="formJadwal" class="card">
+      <input type="text" id="namaJadwal" placeholder="Nama" required><br>
+      <select id="hari">
+        <option>Senin</option><option>Selasa</option><option>Rabu</option><option>Kamis</option><option>Jumat</option>
+      </select><br>
+      <select id="jam">
+        <option>08.00 - 10.00</option>
+        <option>10.00 - 12.00</option>
+        <option>13.00 - 15.00</option>
+        <option>15.00 - 17.00</option>
+      </select><br>
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="outputJadwal" class="card"></div>
+
+    <div style="margin-top: 30px;">
+      <a class="btn-download" href="jadwal.pdf" download>📥 Unduh Jadwal Kursus</a>
+    </div>
+
+    <div id="infoCuaca"></div>
+  </main>
+
+  <script>
+    document.getElementById("formJadwal").onsubmit = function(e) {
+      e.preventDefault();
+      const nama = document.getElementById("namaJadwal").value;
+      const hari = document.getElementById("hari").value;
+      const jam = document.getElementById("jam").value;
+
+      document.getElementById("outputJadwal").innerHTML = `
+        <h3>Jadwal Dipilih:</h3>
+        <p>Nama: ${nama}<br>Hari: ${hari}<br>Waktu: ${jam}</p>
+      `;
+    };
+
+    const now = new Date();
+    document.getElementById("infoCuaca").innerText = `Jam Saat Ini: ${now.toLocaleTimeString()}`;
+  </script>
+</body>
+</html>

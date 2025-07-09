@@ -1,0 +1,139 @@
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beranda Kursus</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+      color: #333;
+    }
+    header.hero {
+      background: #0288d1;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      list-style: none;
+      margin-top: 20px;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 8px 12px;
+      background: #0277bd;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    nav ul li a:hover {
+      background: #889ba8;
+    }
+    .profil-container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .profil-box img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #5f6f77;
+    }
+    .profil-text {
+      margin-top: 20px;
+    }
+    .profil-text h2 {
+      margin-bottom: 8px;
+    }
+    .video-box {
+      margin-top: 30px;
+    }
+    .video-box video {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    #infoCuaca {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #2c3e50;
+      background-color: #ecf0f1;
+      padding: 10px 20px;
+      display: inline-block;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body onload="playMusic(); tampilJam();">
+  <header class="hero">
+    <h1>Selamat Datang di Kursus Talenta Jaya</h1>
+    <p>Tingkatkan skill Anda bersama kami 💡</p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="daftar.html">Daftar Kursus</a></li>
+        <li><a href="pilih.html">Pilih Jadwal</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="profil-container">
+    <div class="profil-box">
+      <img src="https://kursustirmobil.com/wp-content/uploads/2020/01/logo-kursus-stir-mobil.jpg" alt="Foto Penyedia Kursus">
+      <div class="profil-text">
+        <h2>Fikri Andarlan</h2>
+        <p><strong>Kontak:</strong> 0812-3456-7890</p>
+        <p>Talenta Jaya Khusus Stir Mobil adalah tempat kursus mengemudi terpercaya yang berkomitmen membantu Anda menguasai keterampilan menyetir dengan mudah, cepat, dan aman. Kami menawarkan program pelatihan khusus stir mobil untuk pemula hingga tingkat lanjut, dengan instruktur berpengalaman dan bersertifikat.</p>
+      </div>
+    </div>
+    <div class="video-box">
+      <video src="Vidio.mp4" controls></video>
+    </div>
+  </section>
+
+  <div style="text-align:center; margin-bottom: 40px;">
+    <div id="infoCuaca"></div>
+  </div>
+
+  <audio id="bgm" autoplay loop>
+    <source src="musik.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung audio.
+  </audio>
+
+  <script>
+    function playMusic() {
+      const audio = document.getElementById("bgm");
+      audio.volume = 0.2;
+    }
+
+    function tampilJam() {
+      const now = new Date();
+      const elemen = document.getElementById("infoCuaca");
+      elemen.innerText = `Jam Saat Ini: ${now.toLocaleTimeString()}`;
+      setTimeout(tampilJam, 1000);
+    }
+  </script>
+</body>
+</html>
